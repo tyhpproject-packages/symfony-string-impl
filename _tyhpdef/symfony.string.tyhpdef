@@ -124,6 +124,10 @@ namespace Symfony\Component\String {
         public abstract function prepend(string ...$prefix): static;
         public function repeat(int $multiplier): static;
         public abstract function replace(string $from, string $to): static;
+        /**
+        * @param-immediately-invoked-callable $to
+        * @generated
+        */
         public abstract function replaceMatches(string $fromRegexp, string|callable $to): static;
         public abstract function reverse(): static;
         public abstract function slice(int $start = 0, ?int $length = null): static;
@@ -169,11 +173,6 @@ namespace Symfony\Component\String {
         public abstract function width(bool $ignoreAnsiDecoration = true): int;
         public function wordwrap(int $width = 75, string $break = "\n", bool $cut = false): static;
         public function __serialize(): array;
-        /**
-        * @deprecated since Symfony 7.4, will be replaced by `__unserialize()` in 8.0
-        * @generated
-        */
-        deprecated public function __sleep(): array;
         public function __clone(): mixed;
         public function __toString(): string;
     }
@@ -222,6 +221,10 @@ namespace Symfony\Component\String {
         public function padBoth(int $length, string $padStr = ' '): static;
         public function padEnd(int $length, string $padStr = ' '): static;
         public function padStart(int $length, string $padStr = ' '): static;
+        /**
+        * @param-immediately-invoked-callable $to
+        * @generated
+        */
         public function replaceMatches(string $fromRegexp, string|callable $to): static;
         public function reverse(): static;
         public function snake(): static;
@@ -274,6 +277,10 @@ namespace Symfony\Component\String {
         public function padStart(int $length, string $padStr = ' '): static;
         public function prepend(string ...$prefix): static;
         public function replace(string $from, string $to): static;
+        /**
+        * @param-immediately-invoked-callable $to
+        * @generated
+        */
         public function replaceMatches(string $fromRegexp, string|callable $to): static;
         public function reverse(): static;
         public function slice(int $start = 0, ?int $length = null): static;
@@ -343,11 +350,6 @@ namespace Symfony\Component\String {
         public static final function resolve(\Stringable|string|int|float|bool $value): string;
         public function __toString(): string;
         public function __serialize(): array;
-        /**
-        * @deprecated since Symfony 7.4, will be replaced by `__serialize()` in 8.0
-        * @generated
-        */
-        deprecated public function __sleep(): array;
         public function jsonSerialize(): string;
     }
     enum TruncateMode {
@@ -404,6 +406,10 @@ namespace Symfony\Component\String {
         public function normalize(int $form = self::NFC): static;
         public function prepend(string ...$prefix): static;
         public function replace(string $from, string $to): static;
+        /**
+        * @param-immediately-invoked-callable $to
+        * @generated
+        */
         public function replaceMatches(string $fromRegexp, string|callable $to): static;
         public function slice(int $start = 0, ?int $length = null): static;
         public function splice(string $replacement, int $start = 0, ?int $length = null): static;
@@ -412,11 +418,6 @@ namespace Symfony\Component\String {
         public function trimPrefix(mixed $prefix): static;
         public function trimSuffix(mixed $suffix): static;
         public function __unserialize(array $data): void;
-        /**
-        * @deprecated since Symfony 7.4, will be replaced by `__unserialize()` in 8.0
-        * @generated
-        */
-        deprecated public function __wakeup(): void;
         public function __clone(): mixed;
     }
 }

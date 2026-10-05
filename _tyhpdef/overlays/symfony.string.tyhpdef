@@ -3,7 +3,7 @@
  * LAYER 3 (hand overlay) — Tyhp-authored. Never regenerated.
  * Path: _tyhpdef/overlays/*.tyhpdef  (not under overlays/stubs/)
  * Needle lists on AbstractString (PHPDoc `string|string[]`) plus AsciiSlugger (omitted from Layer 1).
- * Match flag overloads, split offset pairs, replaceMatches callbacks, inflector lists, and concrete string overrides.
+ * Same public tightenings as this version's Layer 1. __serialize is a string map; __sleep is not on this version.
  */
 
 namespace Symfony\Component\String {
@@ -37,6 +37,7 @@ namespace Symfony\Component\String {
      * preg_replace_callback passed to replaceMatches. The subject string is the replacement when $to is a string.
      */
     type ReplaceMatchesCallback = callable(array<int|string, string>): string;
+
 
     /**
      * Overlay: after/before/contains/endsWith/equalsTo/indexOf/startsWith accept `NeedleList`.
@@ -97,16 +98,10 @@ namespace Symfony\Component\String {
         public function __clone(): void;
 
         /**
-         * @return array<string, mixed>
+         * @return array<string, string>
          */
         // @overlay-against: function __serialize(): array
-        public function __serialize(): array<string, mixed>;
-
-        /**
-         * @return array<int, string>
-         */
-        // @overlay-against: function __sleep(): array
-        deprecated public function __sleep(): array<int, string>;
+        public function __serialize(): array<string, string>;
 
         /**
          * @param \Symfony\Component\String\NeedleList $needle
@@ -541,16 +536,10 @@ namespace Symfony\Component\String {
         public static final function isStringable(mixed $value): $value is string|int|float|bool|\Stringable;
 
         /**
-         * @return array<string, mixed>
+         * @return array<string, string>
          */
         // @overlay-against: function __serialize(): array
-        public function __serialize(): array<string, mixed>;
-
-        /**
-         * @return array<int, string>
-         */
-        // @overlay-against: function __sleep(): array
-        deprecated public function __sleep(): array<int, string>;
+        public function __serialize(): array<string, string>;
     }
 
     // @overlay-against: class UnicodeString extends \Symfony\Component\String\AbstractUnicodeString
@@ -559,10 +548,10 @@ namespace Symfony\Component\String {
         public function __clone(): void;
 
         /**
-         * @param array<string, mixed> $data
+         * @param array<string, string> $data
          */
         // @overlay-against: function __unserialize(array $data): void
-        public function __unserialize(array<string, mixed> $data): void;
+        public function __unserialize(array<string, string> $data): void;
 
         /**
          * @return array<int, static>
